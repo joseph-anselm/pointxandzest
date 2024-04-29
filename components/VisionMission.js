@@ -14,7 +14,7 @@ const VisionMission = () => {
               exceptional online experiences, strategic IT advisory, and strong online
               brand building.
             </p>
-            <div className="flex-1">
+            <div className="flex-shrink-0">
               <Image
                 src="/img/pointx-img1.jpg"
                 alt="Vision Image"
@@ -34,7 +34,7 @@ const VisionMission = () => {
               brand consultancy and optimization, and SEO solutions, to help businesses
               thrive in the digital world.
             </p>
-            <div className="flex-1">
+            <div className="flex-shrink-0">
               <Image
                 src="/img/pointx-img2.jpg"
                 alt="Mission Image"

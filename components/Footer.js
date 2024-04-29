@@ -45,7 +45,7 @@ const Footer = () => {
           <img className="h-auto w-[100px] mb-4" src="/img/logo-pointx.png" alt="PointX and Zest" />
           <div className="text-white">
             
-            <p className="text-sm">EESL is committed to delivering oilfield filtration solutions for clean wellbores and enhanced productivity. Our advanced equipment minimizes debris, reduces rig time, and customizes filtration packages for efficient workover and completions operations.</p>
+            <p className="text-sm">Welcome to PointX and Zest, your trusted partner in the realm of IT innovation and digital transformation. As a leading IT firm, we specialize in a diverse array of services tailored to elevate your online presence and drive business growth..</p>
           </div>
         </div>
 
