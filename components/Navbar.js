@@ -33,7 +33,38 @@ export default function Navbar() {
 
   return (
     <>
-    
+    <div className={`fixed top-0 left-0 right-0 z-50 ${scrolling ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Left section with phone numbers and emails */}
+          {/* <div className="flex items-center space-x-4">
+            <span className="hidden sm:block">Phone: 123-456-7890</span>
+            <span className="hidden sm:block">Email: info@example.com</span>
+          </div> */}
+          {/* Right section with social media icons */}
+          <div className="flex items-center space-x-4">
+            {/* Add your social media icons here */}
+            <a href="#" className="text-gray-400 hover:text-green-500">
+              {/* Example social media icon */}
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 21V12l5-5m6 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
     <Disclosure as="nav" className={`fixed top-16 left-0 right-0 z-50 ${scrolling ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       {({ open }) => (
         <>
@@ -42,7 +73,7 @@ export default function Navbar() {
               <div className="flex-shrink-0">
                 <img
                   className="h-16 w-auto"
-                  src="/images/Pointx-Logo.png"
+                  src="/img/logo-pointx.png"
                   alt="PointX and Zest Verified Resources"
                 />
               </div>

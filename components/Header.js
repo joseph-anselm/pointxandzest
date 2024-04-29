@@ -246,24 +246,24 @@ SwiperCore.use([Autoplay, Navigation, Pagination]);
 const Header = () => {
   const slidesData = [
     {
-      title: 'Excella: Energy Excellence',
-      subtitle: 'Where innovation meets reliability in oil and gas services. Welcome to a future of excellence.',
-      imgSrc: '/images/excella-img4.jpg',
+      title: 'IT Excellence',
+      subtitle: 'Driving excellence in IT through research.',
+      imgSrc: '/img/Banner-pointx1.jpg',
     },
     {
-      title: 'Precision Filtration for Efficiency.',
-      subtitle: 'Maximize operations with advanced filtration.',
-      imgSrc: '/images/excella-img2.jpg',
+      title: 'Research Leaders',
+      subtitle: 'Leading the way in research consultancy.',
+      imgSrc: '/img/Banner-pointx2.jpg',
     },
     {
-      title: 'Insights Below: Mud Logging Excellence',
-      subtitle: 'Real-time data for informed drilling decisions.',
-      imgSrc: '/images/excella-img3.jpg',
+      title: 'Innovate with PointX and Zest',
+      subtitle: 'PointX: Innovating through research-driven IT solutions.',
+      imgSrc: '/img/Banner-pointx3.jpg',
     },
     {
-      title: 'Revitalize Wells with Expert Cleaning',
-      subtitle: 'Enhance efficiency and extend reservoir life.',
-      imgSrc: '/images/excella-img1.jpg',
+      title: 'Your Digital Partner',
+      subtitle: 'Partner with PointX for IT transformation.',
+      imgSrc: '/img/Banner-pointx4.jpg',
     },
     // Add more slides as needed
   ];
@@ -291,7 +291,7 @@ const Header = () => {
         // Wrapping the first word in a span with green color
         const titleWithGreenText = (
           <>
-            <span className="text-[#7FB000]">{words[0]} </span>
+            <span className="text-[#37B6FF]">{words[0]} </span>
             {words.slice(1).join(' ')}
           </>
         );
@@ -311,7 +311,7 @@ const Header = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-[1px 1px 1px to-black]">{titleWithGreenText}</h1>
                 <p className="text-lg mb-6">{slide.subtitle}</p>
                 <div className="flex justify-center space-x-4">
-                  <button className="bg-[#7FB000] text-white px-4 py-2 rounded">
+                  <button className="bg-[#37B6FF] text-white px-4 py-2 rounded">
                     Get a Quote
                   </button>
                   <button className="bg-white text-[#7FB000] px-4 py-2 rounded">
