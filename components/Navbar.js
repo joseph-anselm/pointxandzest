@@ -5,9 +5,9 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'What we do', href: '/what-we-do', current: false },
-  { name: 'Who we are', href: '/Who-we-are', current: false },
-  { name: 'Contact us', href: '/contact-us', current: false },
+  { name: 'About', href: '/about', current: false },
+  { name: 'Services', href: '/Who-we-are', current: false },
+  { name: 'Contact', href: '/contact-us', current: false },
 ];
 
 function classNames(...classes) {
@@ -84,7 +84,7 @@ export default function Navbar() {
                     href={item.href}
                     className={classNames(
                       'font-semibold',
-                      scrolling ? 'text-[#061956] hover:text-green-500' : 'text-white hover:text-[#061956]',
+                      scrolling ? 'text-[#061956] hover:text-[#37B6FF]' : 'text-white hover:text-[#061956]',
                       'px-3 py-2 rounded-md text-sm'
                     )}
                     aria-current={item.current ? 'page' : undefined}
@@ -97,7 +97,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   className={`hidden sm:block px-4 py-2 rounded-md ${
-                    scrolling ? 'bg-green-500 text-white' : 'bg-[#38B6FF] text-white'
+                    scrolling ? 'bg-[#37B6FF] text-white' : 'bg-[#38B6FF] text-white'
                   } hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
                 >
                   Let&apos;s Talk
@@ -123,7 +123,7 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     'font-semibold',
-                    scrolling ? 'text-[#061956] hover:text-green-500' : 'text-white hover:text-[#7FB000]',
+                    scrolling ? 'text-[#061956] hover:text-[#37B6FF]' : 'text-white hover:text-[#37B6FF]',
                     'block px-3 py-2 rounded-md text-base'
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -134,8 +134,8 @@ export default function Navbar() {
               <button
                 type="button"
                 className={`block w-full text-left px-4 py-2 rounded-md ${
-                  scrolling ? 'bg-green-500 text-white' : 'bg-[#38B6FF] text-white'
-                } hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white`}
+                  scrolling ? 'bg-[#37B6FF] text-white' : 'bg-[#0071BC] text-white'
+                } hover:bg-[#37B6FF] focus:outline-none focus:ring-2 focus:ring-white`}
               >
                 Let&apos;s Talk
               </button>

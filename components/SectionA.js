@@ -42,9 +42,13 @@ const SectionA = () => {
 
   return (
     <div className="container mx-auto max-w-7xl  px-4 py-16">
-      <h2 className='my-4 text-center text-gray-700 text-xl'>Take Look</h2>
-      <h1 className='my-4 text-center text-black text-4xl'>What we Provide</h1>
-      <p className='text-center text-gray-700 m-3'>PointX and Zest offers an array of topnotch and cutting edge IT services in Nigeria</p>
+      <div className='m-8'>
+        <h2 className='my-4 text-center text-gray-700 text-xl'>Take Look</h2>
+        <h1 className='my-4 text-center text-black text-4xl'>What we Provide</h1>
+        <p className='text-center text-gray-700 m-3'>PointX and Zest offers an array of topnotch and cutting edge IT services in Nigeria</p>
+
+      </div>
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {items.map((item, index) => (
           <div key={index} className="bg-white rounded-lg shadow-lg p-6">

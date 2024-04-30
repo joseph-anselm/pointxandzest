@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SectionA from "@/components/SectionA";
 import VisionMission from "@/components/VisionMission";
 import CTA from "@/components/Cta";
+import CoreValues from "@/components/CoreValues";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <Header />
-        <SectionA />
-        <VisionMission />
-        <CTA />
+        
         {children}
         <Footer />
         </body>
