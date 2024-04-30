@@ -17,25 +17,25 @@ const SectionA = () => {
     {
       "icon": "💻",
       "title": "Web Design and Development",
-      "description": "Crafting Exceptional Online Experiences: PointX and Zest&apos;s Web Solutions",
+      "description": "Crafting Exceptional Online Experiences: PointX and Zest's Web Solutions",
       "url": "#"
     },
     {
       "icon": "👨‍💻",
       "title": "IT Consultancy",
-      "description": "Strategic IT Advisory: PointX and Zest&apos;s Consultancy Services",
+      "description": "Strategic IT Advisory: PointX and Zest's Consultancy Services",
       "url": "#"
     },
     {
       "icon": "📈",
       "title": "Online Brand Consultancy and Optimization",
-      "description": "Building Strong Online Brands: PointX and Zest&apos;s Brand Consultancy.",
+      "description": "Building Strong Online Brands: PointX and Zest's Brand Consultancy.",
       "url": "#"
     },
     {
       "icon": "🔍",
       "title": "SEO and Business Digitization",
-      "description": "Boosting Visibility, Driving Growth: PointX and Zests SEO Solutions.",
+      "description": "Boosting Visibility, Driving Growth: PointX and Zest's SEO Solutions.",
       "url": "#"
     }
   ];
