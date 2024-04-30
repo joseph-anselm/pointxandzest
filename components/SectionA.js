@@ -5,31 +5,31 @@ const SectionA = () => {
     {
       "icon": "🔬",
       "title": "Research and Innovation",
-      "description": "Driving Innovation Through Research: PointX and Zests Expertise.",
+      "description": "Driving Innovation Through Research: PointX and Zest&apos;s Expertise.",
       "url": "#"
     },
     {
       "icon": "🛠️",
       "title": "IT Managed Services",
-      "description": "Efficient IT Management Solutions: PointX and Zests Managed Services.",
+      "description": "Efficient IT Management Solutions: PointX and Zest&apos;s Managed Services.",
       "url": "#"
     },
     {
       "icon": "💻",
       "title": "Web Design and Development",
-      "description": "Crafting Exceptional Online Experiences: PointX and Zests Web Solutions",
+      "description": "Crafting Exceptional Online Experiences: PointX and Zest&apos;s Web Solutions",
       "url": "#"
     },
     {
       "icon": "👨‍💻",
       "title": "IT Consultancy",
-      "description": "Strategic IT Advisory: PointX and Zests Consultancy Services",
+      "description": "Strategic IT Advisory: PointX and Zest&apos;s Consultancy Services",
       "url": "#"
     },
     {
       "icon": "📈",
       "title": "Online Brand Consultancy and Optimization",
-      "description": "Building Strong Online Brands: PointX and Zests Brand Consultancy.",
+      "description": "Building Strong Online Brands: PointX and Zest&apos;s Brand Consultancy.",
       "url": "#"
     },
     {
