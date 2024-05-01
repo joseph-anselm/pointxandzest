@@ -110,7 +110,7 @@ const SectionA = () => {
     },
     {
         id: 6,
-        icon: "📈",
+        icon: "🔍",
         title: "SEO and Business Digitization",
         shortDescription: "Boosting Visibility, Driving Growth: PointX and Zest's SEO Solutions.",
         description: "Boost your online visibility and accelerate business growth with PointX and Zest's SEO Solutions. Our search engine optimization (SEO) services are designed to optimize your website's performance in search engine results, driving organic traffic and increasing conversions. From keyword research and on-page optimization to content marketing and link building, we employ proven strategies to help you achieve sustainable results and stay ahead of the competition.",
@@ -126,6 +126,10 @@ const SectionA = () => {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-16">
+         <div className="header mb-8 text-center">
+            <h1 className="text-3xl font-bold mb-4">Our <span className='text-[#37B6FF]'> Services </span></h1>
+             <p className="text-gray-600">Explore our range of services designed to help your business thrive.</p>
+        </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {services.map((service, index) => (
           <div key={service.id} className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
