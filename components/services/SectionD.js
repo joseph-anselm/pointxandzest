@@ -26,7 +26,7 @@ const ResearchProcess = () => {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-16">
-      <h2 className="text-3xl font-bold text-center mb-8">Research Delivery Process</h2>
+      <h2 className="text-3xl font-bold text-center mb-8"><span className='text-[#37B6FF]'>Research </span> Delivery Flow</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {steps.map((step, index) => (
           <div key={index} className="bg-gray-200 rounded-lg p-4 text-center">
