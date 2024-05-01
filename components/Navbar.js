@@ -156,8 +156,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'About', href: '/about', current: false },
-  { name: 'Services', href: '/Who-we-are', current: false },
-  { name: 'Contact', href: '/contact-us', current: false },
+  { name: 'Services', href: '/services', current: false },
+  { name: 'Contact', href: '/contact', current: false },
 ];
 
 function classNames(...classes) {
