@@ -7,6 +7,8 @@ import SectionA from "@/components/SectionA";
 import VisionMission from "@/components/VisionMission";
 import CTA from "@/components/Cta";
 import CoreValues from "@/components/CoreValues";
+import SubHeaders from "@/components/SubHeaders";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +20,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
+      <Head>
+        <title>PointX and Zest Verififed Resources</title>
+        <meta name="PointX and Zest Verififed Resources" content="Excellence, Quality, Competence" />
+        <link rel="icon" href="favicon.ico" />
+      </Head>
+      <body>
+        <Navbar/>
         
         {children}
-        <Footer />
-        </body>
+        <Footer/>
+      </body>
     </html>
-  );
+  )
 }
