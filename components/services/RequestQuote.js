@@ -16,7 +16,7 @@ const RequestQuote = () => {
             </form>
           </div>
           <div className="flex justify-center">
-            <img src="/img/pointx-img2.jpg" alt="Request a Quote" className="max-w-lg h-auto " />
+            <img src="/img/pointx-img2.jpg" alt="Request a Quote" className="w-auto h-auto " />
           </div>
         </div>
       </div>

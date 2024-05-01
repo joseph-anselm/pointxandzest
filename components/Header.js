@@ -312,11 +312,12 @@ const Header = () => {
                 <p className="text-lg mb-6">{slide.subtitle}</p>
                 <div className="flex justify-center space-x-4">
                   <button className="bg-[#37B6FF] text-white px-4 py-2 rounded">
-                    Get a Quote
+                    <a href="/services">Get a Quote</a>
                   </button>
                   <button className="bg-white text-[#37B6FF] px-4 py-2 rounded">
-                    Service Overview
+                    <a href="/services">Service Overview</a>
                   </button>
+
                 </div>
               </div>
             </div>
