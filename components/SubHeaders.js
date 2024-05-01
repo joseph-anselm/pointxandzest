@@ -47,7 +47,7 @@ const SubHeader = ({ title, backgroundImage }) => {
             <span className="text-[#0071BC]">{title.slice(1, 2)}</span>
             <span className="text-white">{title.slice(2)}</span>
           </h1>
-          <div className="h-1 w-24 bg-[#37B6FF]"></div>
+          <div className="mt-4 h-1 w-28 bg-[#37B6FF]"></div>
         </div>
       </div>
 

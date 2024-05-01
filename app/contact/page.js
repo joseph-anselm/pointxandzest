@@ -4,6 +4,7 @@ import SubHeaders from '@/components/SubHeaders'
 import SectionA from '@/components/about/SectionA'
 import VisionMission from '@/components/VisionMission'
 import Subscribe from '@/components/about/Subscribe'
+import ContactUs from '@/components/contact/ContactUs'
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         title="Reach Out"
         backgroundImage="/img/Banner-pointx3.jpg"
         />  
+        <ContactUs />
        
     </div>
   )

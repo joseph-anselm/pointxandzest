@@ -5,6 +5,7 @@ import SectionA from '@/components/services/SectionA'
 
 import ResearchProcess from '@/components/services/SectionD'
 import ServiceSteps from '@/components/services/SectionC'
+import RequestQuote from '@/components/services/RequestQuote'
 
 
 
@@ -20,6 +21,7 @@ export default function Home() {
       
        <ServiceSteps />
        <ResearchProcess />
+       <RequestQuote />
        
        
     </div>
