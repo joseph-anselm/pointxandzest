@@ -11,7 +11,7 @@ const Subscribe = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="lg:text-center">
           <p className="text-base leading-6 text-[#37B6FF] font-semibold tracking-wide uppercase">

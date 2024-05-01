@@ -5,13 +5,13 @@ const SectionA = () => {
     {
       "icon": "🔬",
       "title": "Research and Innovation",
-      "description": "Driving Innovation Through Research: PointX and Zest&apos;s Expertise.",
+      "description": "Driving Innovation Through Research: PointX and Zest's Expertise.",
       "url": "#"
     },
     {
       "icon": "🛠️",
       "title": "IT Managed Services",
-      "description": "Efficient IT Management Solutions: PointX and Zest&apos;s Managed Services.",
+      "description": "Efficient IT Management Solutions: PointX and Zest's Managed Services.",
       "url": "#"
     },
     {
