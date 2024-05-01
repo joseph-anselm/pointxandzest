@@ -116,11 +116,11 @@ const Footer = () => {
 
       {/* Quick Links */}
       <div className="flex justify-center space-x-4">
-        <a href="/What-we-do" className="text-[#37B6FF] hover:text-[#9ebd4f]">Services</a>
+        <a href="/services" className="text-[#37B6FF] hover:text-[#0071BC]">Services</a>
         <span className="text-gray-400">|</span>
-        <a href="/Who-we-are" className="text-[#37B6FF] hover:text-[#9ebd4f]">About Us</a>
+        <a href="/about" className="text-[#37B6FF] hover:text-[#0071BC]">About Us</a>
         <span className="text-gray-400">|</span>
-        <a href="https://webmail-p279.web-hosting.com/" className="text-[#37B6FF] hover:text-[#9ebd4f]">Staff Email</a>
+        <a href="/contact" className="text-[#37B6FF] hover:text-[#0071BC]">Contact us</a>
       </div>
     </div>
     </footer>

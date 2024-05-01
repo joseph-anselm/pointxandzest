@@ -89,27 +89,27 @@ import React from 'react';
 const CoreValues = () => {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-16">
-      <h2 className="text-4xl font-bold mb-8 text-center">Core Values</h2>
+      <h2 className="text-4xl font-[500] mb-8 text-center">Core<span className='text-[#37B6FF]'> Values</span></h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-blue-400 p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
+        <div className="bg-[#0071BC] p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
           <h3 className="text-xl font-bold mb-4">Innovation</h3>
           <p>
             We embrace innovation and strive to find creative solutions to challenges.
           </p>
         </div>
-        <div className="bg-blue-600 p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
+        <div className="bg-[#0071BC] p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
           <h3 className="text-xl font-bold mb-4">Excellence</h3>
           <p>
             We pursue excellence in everything we do, delivering high-quality results.
           </p>
         </div>
-        <div className="bg-blue-800 p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
+        <div className="bg-[#0071BC] p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
           <h3 className="text-xl font-bold mb-4">Integrity</h3>
           <p>
             We operate with integrity, honesty, and transparency in all our interactions.
           </p>
         </div>
-        <div className="bg-blue-900 p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
+        <div className="bg-[#0071BC] p-8 rounded-bl-[2em] rounded-tr-[2em] text-white text-center shadow-lg">
           <h3 className="text-xl font-bold mb-4">Customer Focus</h3>
           <p>
             We prioritize the needs and satisfaction of our customers above all else.

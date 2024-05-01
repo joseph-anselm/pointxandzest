@@ -6,46 +6,46 @@ const SectionA = () => {
       "icon": "🔬",
       "title": "Research and Innovation",
       "description": "Driving Innovation Through Research: PointX and Zest's Expertise.",
-      "url": "#"
+      "url": "/services"
     },
     {
       "icon": "🛠️",
       "title": "IT Managed Services",
       "description": "Efficient IT Management Solutions: PointX and Zest's Managed Services.",
-      "url": "#"
+      "url": "/services"
     },
     {
       "icon": "💻",
       "title": "Web Design and Development",
       "description": "Crafting Exceptional Online Experiences: PointX and Zest's Web Solutions",
-      "url": "#"
+      "url": "/services"
     },
     {
       "icon": "👨‍💻",
       "title": "IT Consultancy",
       "description": "Strategic IT Advisory: PointX and Zest's Consultancy Services",
-      "url": "#"
+      "url": "/services"
     },
     {
       "icon": "📈",
       "title": "Online Brand Consultancy and Optimization",
       "description": "Building Strong Online Brands: PointX and Zest's Brand Consultancy.",
-      "url": "#"
+      "url": "/services"
     },
     {
       "icon": "🔍",
       "title": "SEO and Business Digitization",
       "description": "Boosting Visibility, Driving Growth: PointX and Zest's SEO Solutions.",
-      "url": "#"
+      "url": "/services"
     }
   ];
 
   return (
     <div className="container mx-auto max-w-7xl  px-4 py-16">
       <div className='m-8'>
-        <h2 className='my-4 text-center text-gray-700 text-xl'>Take Look</h2>
+        <h2 className='my-4 text-center text-gray-500 text-xl'>Take Look</h2>
         <h1 className='my-4 text-center text-black text-4xl'>What we Provide</h1>
-        <p className='text-center text-gray-700 m-3'>PointX and Zest offers an array of topnotch and cutting edge IT services in Nigeria</p>
+        <p className='text-center text-gray-500 m-3'>PointX and Zest offers an array of topnotch and cutting edge IT services in Nigeria</p>
 
       </div>
       

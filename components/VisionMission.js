@@ -110,7 +110,7 @@ import Image from 'next/image';
 const VisionMission = () => {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-16">
-      <h2 className="text-4xl font-bold mb-8 text-center">
+      <h2 className="text-4xl font-[500] mb-8 text-center">
         <span className="text-[#37B6FF]">Vision</span> and <span className="text-[#37B6FF]">Mission</span>
       </h2>
       <div className="flex flex-wrap -mx-4">
@@ -118,7 +118,7 @@ const VisionMission = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md flex flex-col h-full">
             <div className="flex justify-center">
               <Image
-                src="/img/pointx-img1.jpg"
+                src="/img/pointx-img2.jpg"
                 alt="Vision Image"
                 layout="responsive"
                 width={500}
@@ -140,7 +140,7 @@ const VisionMission = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md flex flex-col h-full">
             <div className="flex justify-center">
               <Image
-                src="/img/pointx-img2.jpg"
+                src="/img/pointx-img1.jpg"
                 alt="Mission Image"
                 layout="responsive"
                 width={500}
