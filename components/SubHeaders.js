@@ -42,7 +42,7 @@ const SubHeader = ({ title, backgroundImage }) => {
 
         {/* Title */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-center z-10 text-4xl md:text-5xl lg:text-6xl text-[#37B6FF] font-extrabold uppercase">
+          <h1 className="text-center z-10 text-4xl md:text-5xl lg:text-6xl text-[#37B6FF] font-extrabold capitalized">
             {title.slice(0, 1)}
             <span className="text-[#0071BC]">{title.slice(1, 2)}</span>
             <span className="text-white">{title.slice(2)}</span>

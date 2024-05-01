@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import SubHeaders from '@/components/SubHeaders'
+import SectionA from '@/components/services/SectionA'
 
 
 
@@ -11,6 +12,7 @@ export default function Home() {
         title="Our Services"
         backgroundImage="/img/Banner-pointx3.jpg"
         />  
+        <SectionA />
        
     </div>
   )

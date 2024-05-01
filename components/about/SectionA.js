@@ -68,9 +68,9 @@ import Image from 'next/image';
 
 const SectionA = () => {
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-16">
+    <div className="container mx-auto max-w-7xl px-4 py-16 mt-8">
       <div className="flex flex-wrap -mx-4">
-        <div className="w-full md:w-1/2 px-4">
+        <div className="w-full md:w-1/2 px-4 mb-2">
           <div className="bg-white rounded-tl-3xl rounded-br-3xl shadow-md relative overflow-hidden">
             <Image
               src="/img/pointx-about1.jpg"
@@ -82,10 +82,10 @@ const SectionA = () => {
             />
           </div>
         </div>
-        <div className="w-full md:w-1/2 px-4">
+        <div className="w-full md:w-1/2 px-4 mb-2">
           <div className="bg-white p-8 rounded-lg shadow-md h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-bold mb-4">About PointX and Zest</h3>
+              <h2 className="text-2xl font-bold mb-4">About <span className='text-[#37B6FF]'>PointX and Zest</span></h2>
               <p className="mb-8">
                 PointX and Zest is a leading IT firm in Nigeria that provides top-notch IT services, including research and innovation, managed services, web design and development, IT consultancy, online brand consultancy and optimization, and SEO solutions. We are committed to delivering exceptional value to our customers and driving innovation and growth through exceptional online experiences, strategic IT advisory, and strong online brand building.
               </p>
