@@ -331,12 +331,12 @@ export default function Navbar() {
                   type="button"
                   className={`hidden sm:block px-4 py-2 rounded-md ${
                     scrolling ? 'bg-[#37B6FF] text-white' : 'bg-[#38B6FF] text-white'
-                  } hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
+                  } hover:bg-[#0071BC] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
                 >
                   Let&apos;s Talk
                 </button>
                 <div className="sm:hidden">
-                  <Disclosure.Button className="text-gray-400 hover:text-[#0071BC ] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="text-gray-400 hover:text-[#0071BC] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     {open ? (
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     ) : (
@@ -370,7 +370,7 @@ export default function Navbar() {
                   scrolling ? 'bg-[#37B6FF] text-white' : 'bg-[#0071BC] text-white'
                 } hover:bg-[#37B6FF] focus:outline-none focus:ring-2 focus:ring-white`}
               >
-                Let&apos;s Talk
+               <a href='https://w.app/PointXandZest'>Let&apos;s Talk</a> 
               </button>
             </div>
           </Disclosure.Panel>
