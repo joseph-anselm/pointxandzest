@@ -268,6 +268,7 @@
 import { useState, useEffect } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -333,7 +334,7 @@ export default function Navbar() {
                     scrolling ? 'bg-[#37B6FF] text-white' : 'bg-[#38B6FF] text-white'
                   } hover:bg-[#0071BC] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
                 >
-                  Let&apos;s Talk
+                 <a href='https://w.app/PointXandZest' target='blank'>Let&apos;s Talk</a> 
                 </button>
                 <div className="sm:hidden">
                   <Disclosure.Button className="text-gray-400 hover:text-[#0071BC] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -372,6 +373,7 @@ export default function Navbar() {
               >
                <a href='https://w.app/PointXandZest'>Let&apos;s Talk</a> 
               </button>
+              
             </div>
           </Disclosure.Panel>
         </>
