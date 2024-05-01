@@ -248,7 +248,7 @@ const Header = () => {
     {
       title: 'IT Excellence',
       subtitle: 'Driving excellence in IT through research.',
-      imgSrc: '/img/Banner-pointx1.jpg',
+      imgSrc: '/img/Banner-pointx5.jpg',
     },
     {
       title: 'Research Leaders',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "@fortawesome/fontawesome-svg-core/styles.css";  
 import { faLinkedin, faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const ContactUs = () => {
@@ -37,13 +38,13 @@ const ContactUs = () => {
               </div>
             </div>
             {/* Follow Us */}
-            <h3 className="text-xl font-bold mb-4 mt-3">Follow Us</h3>
-            <div className="md:w-1/2 p-1 flex items-center justify-center">
-              <FontAwesomeIcon icon={faLinkedin} className="text-sm mr-4" />
-              <FontAwesomeIcon icon={faFacebook} className="text-sm mr-4" />
-              <FontAwesomeIcon icon={faTwitter} className="text-sm mr-4" />
-              <FontAwesomeIcon icon={faInstagram} className="text-sm mr-4" />
-              <FontAwesomeIcon icon={faYoutube} className="text-sm mr-4" />
+            <h3 className="text-xl mt-14">Follow Us</h3>
+            <div className="md:w-1/2 flex items-start justify-left">
+              <FontAwesomeIcon icon={faLinkedin} spin border className="mr-4 text-lg" />
+              <FontAwesomeIcon icon={faFacebook} spin border className="text-lg mr-4" />
+              <FontAwesomeIcon icon={faTwitter} spin spinReverse className="text-lg mr-4" />
+              <FontAwesomeIcon icon={faInstagram} spin spinReverse className="text-lg mr-4" />
+              <FontAwesomeIcon icon={faYoutube} spin spinReverse className="text-lg mr-4" />
             </div>
           </div>
           {/* Contact form */}
