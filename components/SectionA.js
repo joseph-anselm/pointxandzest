@@ -41,9 +41,9 @@ const SectionA = () => {
   ];
 
   return (
-    <div className="container mx-auto max-w-7xl  px-4 py-16">
+    <div className="container mx-auto max-w-7xl  px-4 py-16 bg-white">
       <div className='m-8'>
-        <h2 className='my-4 text-center text-gray-500 text-xl'>Take Look</h2>
+        <h2 className='my-4 text-center text-gray-500 text-xl'>Take A Look</h2>
         <h1 className='my-4 text-center text-black text-4xl'>What we Provide</h1>
         <p className='text-center text-gray-500 m-3'>PointX and Zest offers an array of topnotch and cutting edge IT services in Nigeria</p>
 
