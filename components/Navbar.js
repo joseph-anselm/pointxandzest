@@ -372,7 +372,7 @@ export default function Navbar() {
                   scrolling ? 'bg-[#37B6FF] text-white' : 'bg-[#0071BC] text-white'
                 } hover:bg-[#37B6FF] focus:outline-none focus:ring-2 focus:ring-white`}
               >
-               <a href='https://w.app/PointXandZest'>Let&apos;s Talk</a> 
+               <a href='https://wa.link/o7wgvh'>Let&apos;s Talk</a> 
               </button>
               
             </div>

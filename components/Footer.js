@@ -53,7 +53,8 @@ const Footer = () => {
         <div className="flex flex-col mb-8 md:w-full md:max-w-sm md:px-4 m-4">
           <div className="text-white">
             <h1 className="text-2xl text-[#37B6FF] font-bold mb-2">Contact Us</h1>
-            <p className="text-sm mb-2">44 Olisa Street, Ijebu Ode. Ogun State</p>
+            <p className="text-sm mb-2"><b>Head Office</b> - 2 Adaralegbe Street, Ajah Lagos</p>
+            <p className="text-sm mb-2"><b>Branch Office</b> - 44 Olisa Street, Ijebu Ode. Ogun State</p>
             <p className="text-sm mb-2"><b>Phone:</b> +234 805 5556 632</p>
             <p className="text-sm mb-2"><b>Email:</b> info@pointxandzest.com</p>
             <p className="text-sm"><b>Website:</b> www.pointxandzest.com</p>
