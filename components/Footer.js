@@ -42,7 +42,7 @@ const Footer = () => {
         {/* Column 1 */}
         <div className="flex flex-col mb-8 md:w-full md:max-w-sm md:pr-4 md:pl-8 m-2">
         <h1 className="text-2xl font-bold mb-2 text-[#37B6FF]">PointX and Zest</h1>
-          <img className="h-auto w-[60px] mb-4" src="/img/logo-pointx.png" alt="PointX and Zest" />
+          <img className="h-auto w-[60px] mb-2" src="/img/logo-pointx.png" alt="PointX and Zest" />
           <div className="text-white">
             
             <p className="text-sm">Welcome to PointX and Zest, your trusted partner in the realm of IT innovation and digital transformation. As a leading IT firm, we specialize in a diverse array of services tailored to elevate your online presence and drive business growth..</p>
