@@ -17,6 +17,13 @@ const ContactUs = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <p className="text-gray-700"><b>Head Office:</b>2 Adaralegbe Street, Ajah Lagos</p>
+                
+              </div>
+              <div className="flex items-center space-x-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                
                 <p className="text-gray-700"><b>Branch Office:</b>44 Olisa Street, Ijebu Ode. Ogun</p>
               </div>
               <div className="flex items-center space-x-4">
