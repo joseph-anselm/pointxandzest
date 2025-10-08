@@ -1,4 +1,4 @@
-import LandingPage from '@/components/ai-plagiarism/Ai-plagiarism'
+import LandingPage from '@/components/aiPlagiarism/AiPlagiarism'
 import React from 'react'
 
 export default function aiPlagiarism() {
