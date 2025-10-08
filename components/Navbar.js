@@ -308,7 +308,7 @@ export default function Navbar() {
               <div className="flex-shrink-0">
                 <img
                   className="h-16 w-auto"
-                  src="/img/logo-pointx.png"
+                  src="/img/logo_pz.png"
                   alt="PointX and Zest Verified Resources"
                 />
               </div>
