@@ -273,257 +273,170 @@ import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 
-// Initialize image URL builder
 const builder = imageUrlBuilder(client);
 
-const PortfolioShowcase = ({ initialProjects = [] }) => {
-  const [projects, setProjects] = useState(initialProjects || []);
+const query = groq`*[_type == "portfolioProject"] | order(_createdAt desc) {
+  _id,
+  title,
+  subtitle,
+  description,
+  category,
+  tags,
+  mainImage,
+  "gallery": gallery[].asset->,
+  projectUrl,
+  codeUrl,
+  details[] {
+    title,
+    value
+  }
+}`;
+
+const PortfolioShowcase = () => {
+  const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
-  const [isLoading, setIsLoading] = useState(!initialProjects?.length);
 
-  // Set up real-time updates
+  // 🔁 Fetch and subscribe to live updates
   useEffect(() => {
-    // If no initial projects were provided, fetch them
-    if (!initialProjects?.length) {
-      fetchInitialProjects();
-    }
+    let isSubscribed = true;
 
-    const query = groq`*[_type == "portfolioProject"] | order(orderRank) {
-      _id,
-      title,
-      subtitle,
-      description,
-      category,
-      tags,
-      mainImage,
-      "gallery": gallery[].asset->,
-      projectUrl,
-      codeUrl,
-      details[] {
-        title,
-        value
-      }
-    }`;
+    const fetchData = async () => {
+      const data = await client.fetch(query);
+      if (isSubscribed) setProjects(data);
+    };
 
-    // Subscribe to real-time updates
-    const subscription = client.listen(query).subscribe({
-      next: (update) => {
-        console.log('Portfolio update received:', update);
-        
-        // Handle different types of updates
-        if (update.type === 'added' || update.type === 'changed') {
-          setProjects(currentProjects => {
-            // Check if project already exists
-            const existingIndex = currentProjects.findIndex(p => p._id === update.result._id);
-            
-            if (existingIndex >= 0) {
-              // Update existing project
-              const updatedProjects = [...currentProjects];
-              updatedProjects[existingIndex] = update.result;
-              return updatedProjects;
-            } else {
-              // Add new project
-              return [...currentProjects, update.result].sort((a, b) => 
-                (a.orderRank || '').localeCompare(b.orderRank || '')
-              );
-            }
-          });
-        } else if (update.type === 'deleted') {
-          setProjects(currentProjects => 
-            currentProjects.filter(p => p._id !== update.documentId)
-          );
-        }
-      },
-      error: (error) => {
-        console.error('Real-time subscription error:', error);
-      }
+    fetchData();
+
+    // Real-time updates: listen to changes
+    const subscription = client.listen(query).subscribe((update) => {
+      fetchData(); // Re-fetch whenever an update happens
     });
 
-    // Cleanup subscription on unmount
-    return () => subscription.unsubscribe();
-  }, [initialProjects]);
+    return () => {
+      isSubscribed = false;
+      subscription.unsubscribe();
+    };
+  }, []);
 
-  // Fetch initial projects if not provided
-  const fetchInitialProjects = async () => {
-    try {
-      setIsLoading(true);
-      const query = groq`*[_type == "portfolioProject"] | order(orderRank) {
-        _id,
-        title,
-        subtitle,
-        description,
-        category,
-        tags,
-        mainImage,
-        "gallery": gallery[].asset->,
-        projectUrl,
-        codeUrl,
-        details[] {
-          title,
-          value
-        }
-      }`;
-      
-      const projectsData = await client.fetch(query);
-      setProjects(projectsData || []);
-    } catch (error) {
-      console.error('Error fetching portfolio projects:', error);
-      setProjects([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  // Unique categories
+  const categories = ['all', ...new Set(projects.map(p => p.category).filter(Boolean))];
+  const filteredProjects =
+    activeFilter === 'all'
+      ? projects
+      : projects.filter(p => p.category === activeFilter);
 
-  // Get unique categories - safely handle undefined projects
-  const categories = ['all', ...new Set((projects || []).map(project => project?.category).filter(Boolean))];
-
-  // Filter projects by category
-  const filteredProjects = activeFilter === 'all' 
-    ? (projects || [])
-    : (projects || []).filter(project => project?.category === activeFilter);
-
-  // Project modal component
-  const ProjectModal = ({ project, onClose }) => {
-    if (!project) return null;
-    
-    return (
+  const ProjectModal = ({ project, onClose }) => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+      onClick={onClose}
+    >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
-        onClick={onClose}
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1 }}
+        className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
       >
-        <motion.div
-          initial={{ scale: 0.95 }}
-          animate={{ scale: 1 }}
-          className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto"
-          onClick={(e) => e.stopPropagation()}
+        <button
+          onClick={onClose}
+          className="absolute -top-12 right-0 text-white hover:text-[#39B6FF] transition-colors z-50"
+          aria-label="Close"
         >
-          <button
-            onClick={onClose}
-            className="absolute -top-12 right-0 text-white hover:text-[#39B6FF] transition-colors z-50"
-            aria-label="Close"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
-          <div className="bg-white rounded-xl overflow-hidden shadow-2xl">
-            <div className="relative h-64 md:h-96 bg-gradient-to-r from-[#0071BC] to-[#39B6FF]">
-              {project.mainImage && (
-                <Image
-                  src={builder.image(project.mainImage).url()}
-                  alt={project.title || 'Project image'}
-                  fill
-                  className="object-cover"
-                />
-              )}
-            </div>
-
-            <div className="p-6 md:p-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags?.map(tag => (
-                  <span 
-                    key={tag}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-[#39B6FF]/10 text-[#0071BC]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">{project.title || 'Untitled Project'}</h2>
-              <p className="text-lg text-gray-600 mb-6">{project.subtitle}</p>
-
-              {project.description && (
-                <div className="prose max-w-none text-gray-700 mb-8">
-                  <PortableText value={project.description} />
-                </div>
-              )}
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {project.details?.map((detail, index) => (
-                  <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-[#0071BC] mb-2">{detail.title}</h3>
-                    <p className="text-gray-600">{detail.value}</p>
-                  </div>
-                ))}
-              </div>
-
-              {project.gallery?.length > 0 && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Gallery</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {project.gallery.map((image, index) => (
-                      <div key={index} className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={builder.image(image).url()}
-                          alt={`${project.title || 'Project'} screenshot ${index + 1}`}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div className="flex flex-wrap gap-3">
-                {project.projectUrl && (
-                  <a
-                    href={project.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-[#0071BC] text-white rounded-lg font-medium hover:bg-[#005999] transition-colors"
-                  >
-                    View Live Project
-                  </a>
-                )}
-                {project.codeUrl && (
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 border border-[#0071BC] text-[#0071BC] rounded-lg font-medium hover:bg-[#0071BC]/10 transition-colors"
-                  >
-                    View Code
-                  </a>
-                )}
-              </div>
-            </div>
+        <div className="bg-white rounded-xl overflow-hidden shadow-2xl">
+          <div className="relative h-64 md:h-96 bg-gradient-to-r from-[#0071BC] to-[#39B6FF]">
+            {project.mainImage && (
+              <Image
+                src={builder.image(project.mainImage).url()}
+                alt={project.title}
+                fill
+                className="object-cover"
+              />
+            )}
           </div>
-        </motion.div>
-      </motion.div>
-    );
-  };
 
-  // Loading state
-  if (isLoading) {
-    return (
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto mb-8"></div>
+          <div className="p-6 md:p-8">
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.tags?.map(tag => (
+                <span 
+                  key={tag}
+                  className="px-3 py-1 text-xs font-medium rounded-full bg-[#39B6FF]/10 text-[#0071BC]"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map(i => (
-                <div key={i} className="animate-pulse">
-                  <div className="h-60 bg-gray-200 rounded-xl mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">{project.title}</h2>
+            <p className="text-lg text-gray-600 mb-6">{project.subtitle}</p>
+
+            {project.description && (
+              <div className="prose max-w-none text-gray-700 mb-8">
+                <PortableText value={project.description} />
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {project.details?.map((detail, i) => (
+                <div key={i} className="bg-gray-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-[#0071BC] mb-2">{detail.title}</h3>
+                  <p className="text-gray-600">{detail.value}</p>
                 </div>
               ))}
             </div>
+
+            {project.gallery?.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Gallery</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {project.gallery.map((image, i) => (
+                    <div key={i} className="relative aspect-square rounded-lg overflow-hidden">
+                      <Image
+                        src={builder.image(image).url()}
+                        alt={`${project.title} screenshot ${i + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-3">
+              {project.projectUrl && (
+                <a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-[#0071BC] text-white rounded-lg font-medium hover:bg-[#005999] transition-colors"
+                >
+                  View Live Project
+                </a>
+              )}
+              {project.codeUrl && (
+                <a
+                  href={project.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border border-[#0071BC] text-[#0071BC] rounded-lg font-medium hover:bg-[#0071BC]/10 transition-colors"
+                >
+                  View Code
+                </a>
+              )}
+            </div>
           </div>
         </div>
-      </section>
-    );
-  }
+      </motion.div>
+    </motion.div>
+  );
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -557,10 +470,7 @@ const PortfolioShowcase = ({ initialProjects = [] }) => {
         {/* Projects grid */}
         {filteredProjects.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">No projects found.</p>
-            <p className="text-sm text-gray-400 mt-2">
-              {activeFilter !== 'all' ? `Try selecting a different category or "All Projects"` : 'No portfolio projects available yet.'}
-            </p>
+            <p className="text-gray-500">No projects found in this category.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -582,20 +492,20 @@ const PortfolioShowcase = ({ initialProjects = [] }) => {
                       {project.mainImage && (
                         <Image
                           src={builder.image(project.mainImage).url()}
-                          alt={project.title || 'Project image'}
+                          alt={project.title}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
-                          <h3 className="text-xl font-bold text-white mb-1">{project.title || 'Untitled Project'}</h3>
+                          <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
                           <p className="text-[#39B6FF] font-medium">{project.category}</p>
                         </div>
                       </div>
                     </div>
                     <div className="bg-white p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title || 'Untitled Project'}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
                       <p className="text-gray-600 mb-4">{project.subtitle}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags?.slice(0, 3).map(tag => (
@@ -628,33 +538,5 @@ const PortfolioShowcase = ({ initialProjects = [] }) => {
     </section>
   );
 };
-
-// Fetch initial projects from Sanity (server-side)
-export async function getPortfolioProjects() {
-  try {
-    const query = groq`*[_type == "portfolioProject"] | order(orderRank) {
-      _id,
-      title,
-      subtitle,
-      description,
-      category,
-      tags,
-      mainImage,
-      "gallery": gallery[].asset->,
-      projectUrl,
-      codeUrl,
-      details[] {
-        title,
-        value
-      }
-    }`;
-    
-    const projects = await client.fetch(query);
-    return projects || [];
-  } catch (error) {
-    console.error('Error fetching portfolio projects:', error);
-    return [];
-  }
-}
 
 export default PortfolioShowcase;
