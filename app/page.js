@@ -6,12 +6,14 @@ import SectionA from '@/components/SectionA';
 import VisionMission from '@/components/VisionMission';
 import CTA from '@/components/Cta';
 import CoreValues from '@/components/CoreValues';
+import Hero from '@/components/Hero';
 
 
 
 const Home = () => {
   return (
     <div >
+ 
       <Header />
       <SectionA />
       <VisionMission />
