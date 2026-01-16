@@ -228,7 +228,7 @@ const Navbar = () => {
         {/* Right Buttons */}
         <div className="flex items-center">
           <Link href="/contact" className="hidden sm:block px-7 py-2.5 rounded-lg bg-sky-400 text-white text-sm font-bold hover:bg-sky-500 transition-all shadow-lg shadow-sky-500/20 active:scale-95">
-            Let's Talk
+            Let&apos;s Talk
           </Link>
 
           {/* Mobile Menu Button */}
