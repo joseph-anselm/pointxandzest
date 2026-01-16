@@ -326,7 +326,7 @@ const SectionA = () => {
 
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-12">
               <p>
-                PointX and Zest is a <span className="text-slate-900 font-bold">pioneering IT collective in Nigeria</span>, established to bridge the gap between abstract research and commercial innovation. We don't just build software; we engineer digital ecosystems.
+                PointX and Zest is a <span className="text-slate-900 font-bold">pioneering IT collective in Nigeria</span>, established to bridge the gap between abstract research and commercial innovation. We don&apos;t just build software; we engineer digital ecosystems.
               </p>
               <p className="text-base text-slate-500">
                 Our team of multi-disciplinary experts is dedicated to deploying high-performance solutions that help enterprises thrive in a volatile digital landscape. We believe in transparency as a service and collaboration as a catalyst.

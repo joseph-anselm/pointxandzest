@@ -292,7 +292,7 @@ const ServicesSectionA = () => {
                     <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[300px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
                       <div className="pt-6 border-t border-slate-50">
                         <p className="text-slate-600 text-sm leading-relaxed mb-6 italic">
-                          "{service.description}"
+                          &quot;{service.description}&quot;
                         </p>
                         <button className="flex items-center gap-2 py-3 px-6 bg-slate-50 hover:bg-[#37B6FF] hover:text-white rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-all group/btn">
                           Request Briefing
