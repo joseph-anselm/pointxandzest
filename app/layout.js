@@ -99,9 +99,9 @@ export const metadata = {
   metadataBase: new URL("https://www.pointxandzest.com"), // change if needed
 
   icons: {
-    icon: "/img/favicon.png",
-    shortcut: "/img/favicon.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/img/favicon.ico",
+    shortcut: "/img/favicon.ico",
+    apple: "/img/apple-touch-icon.png",
   },
 
   openGraph: {
