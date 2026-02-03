@@ -167,7 +167,16 @@ export default function RootLayout({ children }) {
             })();
           `}
         </Script>
+
+
+<Script
+  src="https://js.paystack.co/v1/inline.js"
+  strategy="afterInteractive"
+/>
+
       </body>
     </html>
   );
 }
+
+

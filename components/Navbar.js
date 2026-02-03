@@ -177,87 +177,239 @@
 // export default Navbar;
 
 
+// "use client"
+// import React, { useState, useEffect } from 'react';
+// import Link from 'next/link';
+// import { Menu, X } from 'lucide-react';
+
+// const Navbar = () => {
+//   const [scrolled, setScrolled] = useState(false);
+//   const [menuOpen, setMenuOpen] = useState(false);
+
+//   useEffect(() => {
+//     const handleScroll = () => setScrolled(window.scrollY > 50);
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
+
+//   // Define your menu paths
+//   const menuItems = [
+//     { label: 'Home', path: '/' },
+//     { label: 'About', path: '/about' },
+//     { label: 'Services', path: '/services' },
+//     { label: 'Portfolio', path: '/portfolio' },
+//     { label: 'Contact', path: '/contact' },
+//   ];
+
+//   return (
+//     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4 bg-black/80 backdrop-blur-lg border-b border-white/10' : 'py-8 bg-transparent'}`}>
+//       <div className="container mx-auto px-6 flex items-center justify-between">
+//         {/* Logo Section */}
+//         <Link href="/" className="flex items-center gap-3">
+//           <img
+//             src="/img/logo.png" // Replace with your bold logo image path
+//             alt="PointX & Zest"
+//             className="w-12 h-12 object-contain"
+//           />
+//           <span className="text-[14px] font-extrabold tracking-[0.3em] uppercase text-sky-400">
+//             PointX & Zest
+//           </span>
+//         </Link>
+
+//         {/* Center Links */}
+//         <div className="hidden lg:flex items-center gap-10 text-[13px] font-bold tracking-wider uppercase text-white/90">
+//           {menuItems.map((item) => (
+//             <Link key={item.label} href={item.path} className="hover:text-sky-400 transition-colors">
+//               {item.label}
+//             </Link>
+//           ))}
+//         </div>
+
+//         {/* Right Buttons */}
+//         <div className="flex items-center">
+//           <Link href="/contact" className="hidden sm:block px-7 py-2.5 rounded-lg bg-sky-400 text-white text-sm font-bold hover:bg-sky-500 transition-all shadow-lg shadow-sky-500/20 active:scale-95">
+//             Let&apos;s Talk
+//           </Link>
+
+//           {/* Mobile Menu Button */}
+//           <button
+//             className="lg:hidden p-2 text-white ml-4"
+//             onClick={() => setMenuOpen(!menuOpen)}
+//           >
+//             {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       {menuOpen && (
+//         <div className="lg:hidden bg-black/90 backdrop-blur-lg text-white uppercase text-center py-6 space-y-4">
+//           {menuItems.map((item) => (
+//             <Link
+//               key={item.label}
+//               href={item.path}
+//               className="block text-lg font-bold hover:text-sky-400 transition-colors"
+//               onClick={() => setMenuOpen(false)}
+//             >
+//               {item.label}
+//             </Link>
+//           ))}
+//         </div>
+//       )}
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+
 "use client"
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+
+import React, { useState, useEffect } from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-  // Define your menu paths
   const menuItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Contact', path: '/contact' },
-  ];
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "/services" },
+
+    // 🔥 NEW FEATURE
+    { label: "Ecommerce System", path: "/ecommerce-bundles", isNew: true },
+
+    { label: "Portfolio", path: "/portfolio" },
+    { label: "Contact", path: "/contact" },
+  ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4 bg-black/80 backdrop-blur-lg border-b border-white/10' : 'py-8 bg-transparent'}`}>
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo Section */}
-        <Link href="/" className="flex items-center gap-3">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "py-4 bg-black/80 backdrop-blur-lg border-b border-white/10"
+          : "py-7 bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between gap-4">
+        {/* LOGO */}
+        <Link href="/" className="flex items-center gap-3 shrink-0">
           <img
-            src="/img/logo.png" // Replace with your bold logo image path
+            src="/img/logo.png"
             alt="PointX & Zest"
-            className="w-12 h-12 object-contain"
+            className="w-11 h-11 object-contain"
           />
-          <span className="text-[14px] font-extrabold tracking-[0.3em] uppercase text-sky-400">
+          <span className="text-[13px] font-extrabold tracking-[0.3em] uppercase text-sky-400 whitespace-nowrap">
             PointX & Zest
           </span>
         </Link>
 
-        {/* Center Links */}
-        <div className="hidden lg:flex items-center gap-10 text-[13px] font-bold tracking-wider uppercase text-white/90">
-          {menuItems.map((item) => (
-            <Link key={item.label} href={item.path} className="hover:text-sky-400 transition-colors">
-              {item.label}
-            </Link>
-          ))}
+        {/* DESKTOP MENU (XL ONLY — prevents wrapping) */}
+        <div className="hidden xl:flex items-center gap-10 text-[13px] font-bold tracking-wider uppercase text-white/90 whitespace-nowrap">
+          {menuItems.map(item =>
+            item.isNew ? (
+              <Link
+                key={item.label}
+                href={item.path}
+                className="relative flex items-center gap-2 text-sky-300 hover:text-sky-400 transition"
+              >
+                {item.label}
+
+                {/* NEW BADGE */}
+                <span className="relative ml-1">
+                  <span className="absolute -inset-2 rounded-full bg-sky-400/40 animate-ping" />
+                  <span className="relative px-2 py-0.5 rounded-full bg-sky-400 text-black text-[9px] font-black tracking-widest animate-pulse shadow-md">
+                    NEW
+                  </span>
+                </span>
+              </Link>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.path}
+                className="hover:text-sky-400 transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
 
-        {/* Right Buttons */}
-        <div className="flex items-center">
-          <Link href="/contact" className="hidden sm:block px-7 py-2.5 rounded-lg bg-sky-400 text-white text-sm font-bold hover:bg-sky-500 transition-all shadow-lg shadow-sky-500/20 active:scale-95">
+        {/* RIGHT ACTIONS */}
+        <div className="flex items-center gap-3 shrink-0">
+          {/* CTA only on xl+ */}
+          <Link
+            href="/contact"
+            className="hidden xl:inline-flex px-7 py-2.5 rounded-lg bg-sky-400 text-white text-sm font-bold hover:bg-sky-500 transition shadow-lg shadow-sky-500/20 active:scale-95 whitespace-nowrap"
+          >
             Let&apos;s Talk
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE MENU BUTTON (shows < xl) */}
           <button
-            className="lg:hidden p-2 text-white ml-4"
+            className="xl:hidden p-2 text-white"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Menu"
           >
             {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE / TABLET MENU */}
       {menuOpen && (
-        <div className="lg:hidden bg-black/90 backdrop-blur-lg text-white uppercase text-center py-6 space-y-4">
-          {menuItems.map((item) => (
+        <div className="xl:hidden bg-black/95 backdrop-blur-xl border-t border-white/10">
+          <div className="flex flex-col py-6 space-y-5 text-center uppercase">
+            {menuItems.map(item =>
+              item.isNew ? (
+                <Link
+                  key={item.label}
+                  href={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex justify-center items-center gap-3 text-lg font-extrabold text-sky-300"
+                >
+                  {item.label}
+
+                  <span className="relative">
+                    <span className="absolute -inset-2 rounded-full bg-sky-400/40 animate-ping" />
+                    <span className="relative px-2 py-1 rounded-full bg-sky-400 text-black text-[10px] font-black tracking-widest animate-pulse">
+                      NEW
+                    </span>
+                  </span>
+                </Link>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-lg font-bold text-white hover:text-sky-400 transition"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
+
+            {/* Mobile CTA */}
             <Link
-              key={item.label}
-              href={item.path}
-              className="block text-lg font-bold hover:text-sky-400 transition-colors"
+              href="/contact"
               onClick={() => setMenuOpen(false)}
+              className="mx-auto mt-4 w-fit px-8 py-3 rounded-xl bg-sky-400 text-white font-bold shadow-lg shadow-sky-500/30"
             >
-              {item.label}
+              Let&apos;s Talk
             </Link>
-          ))}
+          </div>
         </div>
       )}
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
